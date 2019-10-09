@@ -44,7 +44,7 @@ export class RouletteGun extends Component {
         return (
             <div>
                 <p>{this.displayParagraph()}</p>
-                <button onClick={this.handleClick}>Pull the trigger!</button>
+                <button onClick={() => this.handleClick()}>Pull the trigger!</button>
             </div>
         )
     }
