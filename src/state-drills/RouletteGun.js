@@ -11,17 +11,6 @@ export class RouletteGun extends Component {
         bulletInChamber: 8
     }
     
-
-    displayParagraph() {
-        if (this.state.spinningTheChamber) {
-            return 'spinning the chamber and pulling the trigger!'
-        } else if(this.state.chamber === this.state.bulletInChamber){
-            return 'BANG'
-        } else {
-            return  `You're safe`
-        }
-    }
-
     handleClick = () => {
         this.setState({
             spinningTheChamber: true
@@ -38,6 +27,16 @@ export class RouletteGun extends Component {
 
     componentWillUnmount() {
         clearTimeout(this.timeOut)
+    }
+
+    displayParagraph() {
+        if (this.state.spinningTheChamber) {
+            return 'spinning the chamber and pulling the trigger!'
+        } else if(this.state.chamber === this.state.bulletInChamber){
+            return 'BANG'
+        } else {
+            return  `You're safe`
+        }
     }
 
     render() {
