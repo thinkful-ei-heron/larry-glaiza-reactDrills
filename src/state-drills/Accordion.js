@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './Accordion.css';
 
 export class Accordion extends Component {
     static defaulProps = {
         sections: []
-    }
+    };
 
     state = {
-        lastClicked: null
+        lastClicked: null,
     }
 
     handleClick = (index) => {
@@ -15,26 +16,25 @@ export class Accordion extends Component {
         })
     }
 
-
-    displayListItem = (item, index) => {
+    displayList = (item, index) => {
         return (
-            <li className='accordion-item' key={index}>
-                <button type='button' onClick={()=> this.handleClick(index)}>{item.title}</button>
+            <li key={index} >
+                <button onClick={() => this.handleClick(index)}> {item.title}</button>
                 {(this.state.lastClicked === index) && <p>{item.content}</p>}
             </li>
         )
     }
-
-
+        
     render() {
         return (
-            <ul className = 'accordion-container'>
-               {this.props.sections.map((item, index) => 
-                    this.displayListItem(item, index)
+            <ul>
+                {this.props.sections.map((item, index) => 
+                    this.displayList(item, index)
                 )}
             </ul>
-        )
-    }
+            )
+          }
 }
+        
 
-export default Accordion
+export default Accordion;
